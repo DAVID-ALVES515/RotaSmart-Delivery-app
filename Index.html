@@ -137,6 +137,52 @@ section{padding:52px 0 4px}.hero{padding:56px 0 36px}.join{padding:48px 0 0}.joi
 .sep{border-top:1px solid var(--bd);margin:26px 0 20px;padding-top:20px;color:var(--mut)}
 #toast{animation:ti .35s cubic-bezier(.2,.9,.3,1.2);position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--or);color:#1a1100;padding:12px 20px;border-radius:14px;font-weight:600;display:none;z-index:50;box-shadow:0 10px 30px #0006}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.route .r1{animation:none;stroke-dashoffset:0}.dot{animation:none}.tg:after{transition:none}}
+
+/* ===== RESPONSIVO: celular, tablet, notebook e TV ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,svg,video,canvas{max-width:100%}
+.lead,.card p,.av p,h1,h2,h3,h4{overflow-wrap:anywhere}
+.btn{min-height:56px;height:auto;padding-top:0;padding-bottom:0}
+.wrap{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@media(max-width:359px){.wrap{padding-left:14px;padding-right:14px}.card{padding:18px;border-radius:20px}.btn{font-size:15px}.join>.wrap{padding:32px 16px;width:calc(100% - 28px)}dialog{padding:20px;width:calc(100% - 20px)}.brand b{font-size:15px}.ib button{width:34px;height:34px}}
+@media(min-width:720px){
+.wrap{max-width:920px;padding-left:32px;padding-right:32px}
+#menu{right:32px}
+h1{font-size:clamp(56px,7vw,84px)}
+h2{font-size:clamp(34px,4vw,48px)}
+.lead{font-size:18px}
+section{padding:88px 0 12px}
+.hero{padding:88px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);column-gap:48px;align-items:center}
+.hero .wrap>*{grid-column:1}
+.hero .wrap>.badge{justify-self:start}
+.hero .wrap>.panel{grid-column:2;grid-row:1/span 4}
+.cta{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.stack{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+.stack>.card:only-child{grid-column:1/-1}
+section .btn{max-width:420px}
+#ads{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;align-items:start}
+#ads .ad{margin-bottom:0}
+.join>.wrap{max-width:760px;width:calc(100% - 64px)}
+dialog{width:min(480px,calc(100% - 48px))}
+#adm{width:min(800px,calc(100% - 48px))}
+.ah{padding:26px 28px 16px}.tabs{padding:4px 28px 16px}.panes{padding:4px 28px 32px}
+}
+@media(min-width:1100px){
+.wrap{max-width:1160px;padding-left:40px;padding-right:40px}
+#menu{right:40px}
+.hero .wrap{column-gap:72px}
+.stack{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.join>.wrap{max-width:860px}
+#adm{width:min(940px,calc(100% - 64px))}
+}
+@media(min-width:1700px){
+.wrap{max-width:1360px}
+html{font-size:112.5%}
+}
+@media(min-height:0) and (max-height:480px) and (orientation:landscape){
+.hero{padding:36px 0 28px}section{padding:36px 0 4px}dialog,#adm{max-height:calc(100dvh - 16px)}
+}
 </style>
 </head>
 <body>
@@ -146,8 +192,7 @@ section{padding:52px 0 4px}.hero{padding:56px 0 36px}.join{padding:48px 0 0}.joi
 <div class="ib"><button aria-label="Endereços" onclick="locPop()">📍</button><button aria-label="Avisos" id="bell" onclick="bell()">🔔</button><button aria-label="Alternar tema" id="tb" onclick="theme()"><i></i></button><button aria-label="Menu" id="mb" onclick="menu()">⋮</button></div>
 </div>
 <div class="wrap" style="position:relative;height:0"><nav id="menu">
-<a href="#inicio"><span class="mi">🏠</span>Início</a><a href="#sobre"><span class="mi">👥</span>Sobre o grupo</a><a href="#motoboys"><span class="mi">🛵</span>Motoboys</a><a href="#lojistas"><span class="mi">🏪</span>Lojistas</a><a href="#/enderecos"><span class="mi">📍</span>Endereços</a><a href="#planos"><span class="mi">💳</span>Planos</a><a href="#avisos"><span class="mi">🔔</span>Avisos</a><a href="#contato"><span class="mi">💬</span>Entrar em contato</a><hr><a href="#/admin"><span class="mi">🔒</span>Administração</a>
-</nav></div></header>
+<a href="#inicio"><span class="mi">🏠</span>Início</a><a href="#sobre"><span class="mi">👥</span>Sobre o grupo</a><a href="#motoboys"><span class="mi">🛵</span>Motoboys</a><a href="#lojistas"><span class="mi">🏪</span>Lojistas</a><a href="#/enderecos"><span class="mi">📍</span>Endereços</a><a href="#planos"><span class="mi">💳</span>Planos</a><a href="#avisos"><span class="mi">🔔</span>Avisos</a><a href="#contato"><span class="mi">💬</span>Entrar em contato</a><hr><a href="#/admin" onclick="event.preventDefault();openAdm()"><span class="mi">🔒</span>Administração</a></nav></div></header>
 
 <main>
 <div class="hero" id="inicio"><svg class="route" viewBox="0 0 400 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="r0" d="M-10 700C70 640 110 500 210 470S350 330 310 190 430 60 430 -10"/><path class="r1" d="M-10 700C70 640 110 500 210 470S350 330 310 190 430 60 430 -10"/><circle r="6" fill="#ff9f1a"><animateMotion dur="3.2s" begin=".3s" fill="freeze" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".6 0 .2 1" path="M-10 700C70 640 110 500 210 470S350 330 310 190 430 60 430 -10"/></circle></svg><div class="wrap">
@@ -252,6 +297,7 @@ section{padding:52px 0 4px}.hero{padding:56px 0 36px}.join{padding:48px 0 0}.joi
 var S={avisos:[],link:{url:'',text:'Entrar no grupo',on:true},ads:[]},T='i',IMG='';
 /* ===== FIREBASE: cole aqui as chaves do seu projeto (Configurações do projeto > Seus apps > Web). Vazio = modo local/teste ===== */
 var FB_CONFIG={apiKey:"AIzaSyAzN2U9zIWKp62HMSJqrBjirEEt54f_Luo",authDomain:"rotasmart-405f8.firebaseapp.com",projectId:"rotasmart-405f8",storageBucket:"rotasmart-405f8.firebasestorage.app",messagingSenderId:"37404012742",appId:"1:37404012742:web:fcc73b2d8e5bb62d16e7c7"};
+var ADMIN_EMAIL='davidalvesdelima1@hotmail.com';
 var FBON=!!(FB_CONFIG.apiKey&&FB_CONFIG.projectId),fbdb=null,fbauth=null,fbAds=[],fbCadOff=null;
 try{var s=JSON.parse(localStorage.getItem('rs')||'null');if(s&&!FBON)S=s}catch(e){}
 var $=function(i){return document.getElementById(i)};
@@ -327,7 +373,7 @@ var UN={moto:'Motoboy',loja:'Lojista',assin:'Assinante',admin:'Administrador'};
 function uAdm(){return MB.filter(function(m){return m.tipo=='admin'})}
 function uRender(){var e=$('ul');if(!e)return;var q=($('q3').value||'').toLowerCase(),G={};MB.forEach(function(m){var t=m.tipo||'moto';if(!UN[t]||!m.whats)return;var g=G[m.whats]||(G[m.whats]={nome:m.nome,whats:m.whats,t:[],ad:null});if(g.t.indexOf(t)<0&&t!='admin')g.t.push(t);if(t=='admin')g.ad=m});var A=Object.keys(G).map(function(k){return G[k]}).filter(function(g){return !q||(g.nome+' '+g.whats).toLowerCase().indexOf(q)>-1}).sort(function(a,b){return (b.ad?1:0)-(a.ad?1:0)||String(a.nome).localeCompare(String(b.nome))}),b='flex:1;min-width:120px;height:40px;font-size:13px';e.innerHTML=(S.pin?'<div class="card" style="padding:16px;margin-top:14px"><b>⭐ Administrador principal</b><br><small style="color:var(--mut)">Senha criada neste aparelho</small></div>':'')+(A.length?A.map(function(g){return'<div class="card" style="padding:16px;margin-top:12px"><b>'+esc(g.nome)+'</b><br><small style="color:var(--mut)">+'+esc(g.whats)+(g.t.length?' · '+g.t.map(function(t){return UN[t]}).join(', '):'')+'</small>'+(g.ad?'<br><small style="color:#2fbf71;font-weight:600">⭐ Administrador</small>':'')+'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">'+(g.ad?'<button class="btn" style="'+b+'" onclick="uPro(\''+g.whats+'\',1)">🔑 Trocar senha</button><button class="btn" style="'+b+'" onclick="uDem(\''+g.ad.id+'\')">Remover admin</button>':'<button class="btn p" style="'+b+'" onclick="uPro(\''+g.whats+'\')">⭐ Promover a administrador</button>')+'</div></div>'}).join(''):'<p style="color:var(--mut);margin-top:14px">Nenhum usuário encontrado.</p>')}
 function uDem(id){pop('⭐','Remover administrador','<p>Esta pessoa perderá o acesso ao painel administrativo. O cadastro dela continua na lista.</p><button class="btn p" id="yes">Remover acesso</button>');$('dcl').textContent='Cancelar';$('yes').onclick=function(){$('dlg').close();mbDel(id);toast('Acesso removido')}}
-function pinAsk(){if(FBON){fbAsk();return}var nw=!S.pin&&!uAdm().length;pop('🔒',nw?'Criar senha do painel':'Painel administrativo','<p>'+(nw?'Crie uma senha de 4 a 8 números para proteger a administração neste aparelho.':'Digite a senha para entrar.')+'</p><input class="in" id="pn1" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="Senha">'+(nw?'<input class="in" id="pn2" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="Repita a senha" style="margin-top:10px">':'')+'<button class="btn p" style="margin-top:18px" onclick="pinOk()">'+(nw?'Salvar senha':'Entrar')+'</button>');$('dcl').textContent='Cancelar'}
+function pinAsk(){if(FBON){fbAsk();return}toast('Área restrita ao administrador');if(location.hash=='#/admin'){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}}
 function pinOk(){var a=$('pn1').value,nw=!S.pin&&!uAdm().length;if(!/^[0-9]{4,8}$/.test(a))return toast('Use de 4 a 8 números');if(nw){if(a!==$('pn2').value)return toast('As senhas não conferem');hx(a).then(function(h){S.pin=h;save();UNL=true;$('dlg').close();openAdm()})}else hx(a).then(function(h){if(h!==S.pin&&!uAdm().some(function(m){return m.pinh==h}))return toast('Senha incorreta');UNL=true;$('dlg').close();openAdm()})}
 function uPro(w,ch){var m=MB.filter(function(x){return x.whats==w})[0];if(!m)return;pop('⭐',ch?'Nova senha de acesso':'Promover a administrador','<p><b>'+esc(m.nome)+'</b> '+(ch?'passará a entrar no painel com a nova senha.':'terá acesso ao painel administrativo com uma senha pessoal.')+' Defina de 4 a 8 números e avise a pessoa por um canal seguro.</p><input class="in" id="ac" type="password" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="Senha de acesso"><button class="btn p" style="margin-top:18px" onclick="uPro2(\''+w+'\','+(ch?1:0)+')">'+(ch?'Salvar senha':'Promover')+'</button>');$('dcl').textContent='Cancelar'}
 function uPro2(w,ch){var c=$('ac').value;if(!/^[0-9]{4,8}$/.test(c))return toast('Use de 4 a 8 números');var m=MB.filter(function(x){return x.whats==w&&x.tipo!='admin'})[0]||MB.filter(function(x){return x.whats==w})[0];hx(c).then(function(h){if(h==S.pin||uAdm().some(function(a){return a.pinh==h&&a.whats!=w}))return toast('Escolha outra senha');var a=uAdm().filter(function(x){return x.whats==w})[0];if(a)mbSet(a.id,{pinh:h});else mbAdd({tipo:'admin',nome:m.nome,whats:w,pinh:h,status:'ativo',criado:Date.now()});$('dlg').close();toast(ch?'Senha atualizada':'Promovido a administrador')})}
@@ -388,14 +434,14 @@ function unseedT(){ask('Todos os dados marcados como teste serão removidos.',fu
 /* ===== FIREBASE (só roda se FB_CONFIG estiver preenchido) ===== */
 function fbAdd(o){var r=fbdb.collection('cadastros'),id=(o.tipo=='moto'||o.tipo=='loja')?o.tipo+'_'+o.whats:'',p=id?r.doc(id).set(o):r.add(o);return p.then(function(){return true},function(e){if(!UNL&&id&&e&&e.code=='permission-denied')return 'dup';mbErr();return false})}
 function fbSaveCfg(){if(!fbdb||!UNL)return;fbdb.collection('site').doc('config').set({avisos:S.avisos||[],link:S.link||{},plans:S.plans||[],pix:S.pix||'',pixTeste:!!S.pixTeste,seeded:!!S.seeded}).catch(mbErr);var A=S.ads||[],keep={},col=fbdb.collection('anuncios');A.forEach(function(a,i){if(!a.id)a.id='a'+Date.now().toString(36)+i;keep[a.id]=1});fbAds.forEach(function(id){if(!keep[id])col.doc(id).delete().catch(function(){})});A.forEach(function(a,i){var o=JSON.parse(JSON.stringify(a));o.ord=i;col.doc(a.id).set(o).catch(mbErr)})}
-function fbAsk(){pop('🔒','Painel administrativo','<p>Entre com o e-mail e a senha do administrador.</p><input class="in" id="fe" type="email" autocomplete="username" placeholder="E-mail"><input class="in" id="fp" type="password" autocomplete="current-password" placeholder="Senha" style="margin-top:10px"><button class="btn p" style="margin-top:18px" onclick="fbLogin()">Entrar</button>');$('dcl').textContent='Cancelar'}
-function fbLogin(){if(!fbauth)return toast('Aguarde a conexão e tente de novo');var e=$('fe').value.trim(),p=$('fp').value;if(!e||!p)return toast('Informe e-mail e senha');fbauth.signInWithEmailAndPassword(e,p).then(function(){return fbdb.collection('cadastros').limit(1).get().then(function(){return true},function(){return false})},function(){return null}).then(function(ok){if(ok===null)return toast('E-mail ou senha incorretos');if(!ok){fbauth.signOut();return toast('Esta conta não é de administrador')}UNL=true;$('dlg').close();openAdm()})}
+function fbAsk(){pop('🔒','Painel administrativo','<p>Entre com o e-mail e a senha do administrador.</p><input class="in" id="fe" type="email" autocomplete="username" placeholder="E-mail" value="'+ADMIN_EMAIL+'" readonly><input class="in" id="fp" type="password" autocomplete="current-password" placeholder="Senha" style="margin-top:10px"><button class="btn p" style="margin-top:18px" onclick="fbLogin()">Entrar</button>');$('dcl').textContent='Cancelar'}
+function fbLogin(){if(!fbauth)return toast('Aguarde a conexão e tente de novo');var e=ADMIN_EMAIL,p=$('fp').value;if(!p)return toast('Informe a senha');fbauth.signInWithEmailAndPassword(e,p).then(function(){return fbdb.collection('cadastros').limit(1).get().then(function(){return true},function(){return false})},function(){return null}).then(function(ok){if(ok===null)return toast('E-mail ou senha incorretos');if(!ok||!fbauth.currentUser||(fbauth.currentUser.email||'').toLowerCase()!==ADMIN_EMAIL){fbauth.signOut();return toast('Esta conta não é de administrador')}UNL=true;$('dlg').close();openAdm()})}
 function fbOut(){UNL=false;if(fbauth)fbauth.signOut();if($('adm').open)$('adm').close();toast('Você saiu do painel')}
 function fbLoad(u){return new Promise(function(res,rej){var s=document.createElement('script');s.src=u;s.onload=res;s.onerror=rej;document.head.appendChild(s)})}
 function fbStart(){firebase.initializeApp(FB_CONFIG);fbauth=firebase.auth();fbdb=firebase.firestore();try{fbauth.setPersistence(firebase.auth.Auth.Persistence.SESSION)}catch(e){}
  fbdb.collection('site').doc('config').onSnapshot(function(d){var c=d.exists?d.data():{};S.avisos=c.avisos||[];if(c.link&&c.link.url!==undefined)S.link=c.link;S.plans=c.plans||[];S.pix=c.pix||'';S.pixTeste=!!c.pixTeste;S.seeded=!!c.seeded;render();plRender()},function(){});
  fbdb.collection('anuncios').onSnapshot(function(s){var L=s.docs.map(function(x){var o=x.data();o.id=x.id;return o}).sort(function(a,b){return (a.ord||0)-(b.ord||0)});fbAds=L.map(function(a){return a.id});S.ads=L;render()},function(){});
- fbauth.onAuthStateChanged(function(u){if(fbCadOff){fbCadOff();fbCadOff=null}if(!u){UNL=false;MB=[];mbRender();return}fbCadOff=fbdb.collection('cadastros').onSnapshot(function(s){UNL=true;MB=s.docs.map(function(x){var o=x.data();o.id=x.id;return o});mbRender()},function(){UNL=false})})}
+ fbauth.onAuthStateChanged(function(u){if(fbCadOff){fbCadOff();fbCadOff=null}if(!u||(u.email||'').toLowerCase()!==ADMIN_EMAIL){if(u)fbauth.signOut();UNL=false;MB=[];mbRender();return}fbCadOff=fbdb.collection('cadastros').onSnapshot(function(s){UNL=true;MB=s.docs.map(function(x){var o=x.data();o.id=x.id;return o});mbRender()},function(){UNL=false})})}
 if(FBON){var _B='https://www.gstatic.com/firebasejs/10.12.2/';fbLoad(_B+'firebase-app-compat.js').then(function(){return Promise.all([fbLoad(_B+'firebase-auth-compat.js'),fbLoad(_B+'firebase-firestore-compat.js')])}).then(fbStart).catch(function(){toast('Sem conexão com o servidor')})}
 setTimeout(function(){if(!FBON&&!S.seeded&&!MB.length&&!S.avisos.length&&!S.ads.length&&!S.link.url){S.seeded=true;seedT(0)}},1200);
 $('dlg').addEventListener('click',function(e){if(e.target===this)this.close()});window.addEventListener('hashchange',route);render();plRender();route();
